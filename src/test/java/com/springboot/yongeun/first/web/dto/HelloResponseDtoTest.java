@@ -1,4 +1,4 @@
-package com.springboot.yongeun.first.dto;
+package com.springboot.yongeun.first.web.dto;
 
 import org.junit.Test;
 
