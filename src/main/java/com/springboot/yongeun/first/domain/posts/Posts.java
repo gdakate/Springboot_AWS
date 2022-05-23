@@ -1,6 +1,7 @@
 package com.springboot.yongeun.first.domain.posts;
 // 실제 DB의 table과 매칭될 클래스(=Entity 클래스)
 //
+import com.springboot.yongeun.first.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @Getter //모든 getter 메소드 자동생성
 @NoArgsConstructor //기본생성자 자동추가
 @Entity //table과 링크될 클래스임을 알림
-public class Posts {
+public class Posts extends BaseTimeEntity {
     @Id //해당 table의 pk필드 나타냄 (PK= Primary Key)
     @GeneratedValue(strategy=GenerationType.IDENTITY) // PK생성 규칙 나타냄, GenerationType.IDENTITY 추가해야 auto_increment 가능
     private Long id;
@@ -29,5 +30,10 @@ public class Posts {
         this.title=title;
         this.content=content;
         this.author=author;
+    }
+
+    public void update(String title, String content){
+        this.title=title;
+        this.content=content;
     }
 }
